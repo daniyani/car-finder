@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "live-server",
-    "build": "rollup",
+    "build": "rollup -c --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,9 +21,13 @@
   },
   "homepage": "https://github.com/daniyani/car-finder#readme",
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.1.2",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "eslint": "^8.44.0",
-    "rollup": "^3.26.0"
+    "rollup": "^3.26.0",
+    "rollup-plugin-import-css": "^3.3.1",
+    "typescript": "^5.1.6"
   }
 }
