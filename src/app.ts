@@ -1,9 +1,16 @@
-import { IView } from "../types/app";
+import { AppState, IView } from "../types/app";
 import { MainView } from "./views/main/main";
 
 class App {
   private currentView: IView;
   private routes = [{ path: "", view: MainView }];
+
+  protected appState: AppState = {
+    country: "",
+    make: "",
+    model: "",
+    fuel_type: "",
+  };
 
   constructor() {
     window.addEventListener("hashchange", this.route.bind(this));
@@ -18,7 +25,7 @@ class App {
     const view = this.routes.find((r) => r.path === location.hash);
 
     if (this.isView(view)) {
-      this.currentView = new view.view();
+      this.currentView = new view.view(this.appState);
     }
 
     this.currentView.render();

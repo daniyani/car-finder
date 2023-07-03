@@ -1,7 +1,14 @@
-import { IView } from "../../../types/app";
+import { AppState, IView } from "../../../types/app";
 import { AbstractView } from "../../common/view";
 
 export class MainView extends AbstractView implements IView {
+  protected appState: AppState;
+
+  constructor(state: AppState) {
+    super();
+    this.appState = state;
+  }
+
   destroy(): void {
     console.log("destroy");
   }
@@ -11,9 +18,5 @@ export class MainView extends AbstractView implements IView {
     main.classList.add("main");
     main.innerHTML = "Main";
     this.app.append(main);
-  }
-
-  constructor() {
-    super();
   }
 }
