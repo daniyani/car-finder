@@ -2,6 +2,7 @@ import { IView, MainState, Response, Filters } from "../../../types/app";
 import { AbstractView } from "../../common/view";
 import onChange from "on-change";
 import queryString from "query-string";
+import { Filters as FiltersComponent } from "../../components/filters/filters";
 
 export class MainView extends AbstractView implements IView {
   protected mainState: MainState = {
@@ -44,7 +45,7 @@ export class MainView extends AbstractView implements IView {
   render(): void {
     const main = document.createElement("div");
     main.classList.add("main");
-    main.innerHTML = "Main";
+    main.append(new FiltersComponent(this.mainState).render());
     this.app.append(main);
   }
 }
