@@ -21,14 +21,7 @@ enum Drive {
   "4wd" = "4wd",
 }
 
-export interface AppState {
-  country: string;
-  make: string;
-  model: string;
-  fuel_type: FuelType | null;
-}
-
-interface Response {
+export interface Response {
   city_mpg: number;
   class: string;
   combination_mpg: number;
@@ -42,7 +35,16 @@ interface Response {
   transmission: Transmission;
   year: number;
 }
+
+export interface Filters {
+  country: string;
+  make: string;
+  model: string;
+  fuel_type: FuelType | string;
+}
+
 export interface MainState {
   list: Array<Response>;
   isLoading: boolean;
+  filters: Filters;
 }
