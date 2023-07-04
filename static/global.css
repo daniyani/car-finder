@@ -11,6 +11,10 @@ body {
     margin: 0 auto;
 }
 
+.header-logo {
+    width: 75px;
+}
+
 .filter-elems {
     display: grid;
     grid-template-columns: 3fr 3fr;

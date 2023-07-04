@@ -3,6 +3,7 @@ import { AbstractView } from "../../common/view";
 import onChange from "on-change";
 import queryString from "query-string";
 import { Filters as FiltersComponent } from "../../components/filters/filters";
+import { Header } from "../../components/header/header";
 
 export class MainView extends AbstractView implements IView {
   protected mainState: MainState = {
@@ -42,10 +43,16 @@ export class MainView extends AbstractView implements IView {
     console.log("destroy");
   }
 
+  renderHeader(): void {
+    const header = new Header().render();
+    this.app.prepend(header);
+  }
+
   render(): void {
     const main = document.createElement("div");
     main.classList.add("main");
     main.append(new FiltersComponent(this.mainState).render());
+    this.renderHeader();
     this.app.append(main);
   }
 }
