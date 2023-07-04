@@ -24,7 +24,14 @@ export class MainView extends AbstractView implements IView {
 
   async loadData(filters: Filters): Promise<Array<Response>> {
     const query = queryString.stringify(filters);
-    const response = await fetch(`https://api.api-ninjas.com/v1/cars?${query}`);
+    console.log(query);
+
+    const response = await fetch(
+      `https://api.api-ninjas.com/v1/cars?${query}`,
+      {
+        headers: { "X-Api-Key": "Il9CQNdHGwny2yj7Eet/7A==uSpy1OhBOUVoDjK1" },
+      }
+    );
     return response.json();
   }
 
