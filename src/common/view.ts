@@ -1,5 +1,5 @@
-export class AbstractView {
-  public app: HTMLElement;
+export abstract class AbstractView {
+  protected app: HTMLElement;
 
   constructor() {
     this.app = document.getElementById("root") as HTMLElement;
@@ -9,11 +9,6 @@ export class AbstractView {
     document.title = title;
   }
 
-  render() {
-    return;
-  }
-
-  destroy() {
-    return;
-  }
+  abstract destroy(): void;
+  abstract render(): void;
 }

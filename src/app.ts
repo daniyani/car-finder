@@ -9,7 +9,7 @@ class App {
     country: "",
     make: "",
     model: "",
-    fuel_type: "",
+    fuel_type: null,
   };
 
   constructor() {
