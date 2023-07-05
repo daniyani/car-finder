@@ -23,8 +23,7 @@ export class MainView extends AbstractView implements IView {
   }
 
   async loadData(filters: Filters): Promise<Array<Response>> {
-    const query = queryString.stringify(filters);
-    console.log(query);
+    const query = queryString.stringify(filters, { skipEmptyString: true });
 
     const response = await fetch(
       `https://api.api-ninjas.com/v1/cars?${query}`,
@@ -32,6 +31,7 @@ export class MainView extends AbstractView implements IView {
         headers: { "X-Api-Key": "Il9CQNdHGwny2yj7Eet/7A==uSpy1OhBOUVoDjK1" },
       }
     );
+
     return response.json();
   }
 
@@ -59,6 +59,7 @@ export class MainView extends AbstractView implements IView {
     const main = document.createElement("div");
     main.classList.add("main");
     main.append(new FiltersComponent(this.mainState).render());
+    this.app.innerHTML = "";
     this.renderHeader();
     this.app.append(main);
   }
