@@ -8,9 +8,8 @@ export class Filters extends DivComponent {
   }
 
   search(): void {
-    const country = (
-      this.el.querySelector("input[name=country]") as HTMLInputElement
-    ).value;
+    const year = (this.el.querySelector("input[name=year]") as HTMLInputElement)
+      .value;
     const make = (this.el.querySelector("input[name=make]") as HTMLInputElement)
       .value;
     const model = (
@@ -22,7 +21,7 @@ export class Filters extends DivComponent {
 
     this.mainState.filters = {
       ...this.mainState.filters,
-      country,
+      year,
       make,
       model,
       fuel_type,
@@ -34,8 +33,8 @@ export class Filters extends DivComponent {
     this.el.classList.add("filters-container");
     this.el.innerHTML = `
     <div class="filter-elems">
-            <input class="filter-input" type="text" name="country" placeholder="Country" value="${
-              filters.country || ""
+            <input class="filter-input" type="text" name="year" placeholder="Year" value="${
+              filters.year || ""
             }"/>
             <input class="filter-input" type="text" name="make" placeholder="Make" value="${
               filters.make || ""

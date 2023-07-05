@@ -37,7 +37,7 @@ export interface Response {
 }
 
 export interface Filters {
-  country: string;
+  year: string;
   make: string;
   model: string;
   fuel_type: FuelType | string;
@@ -47,4 +47,9 @@ export interface MainState {
   list: Array<Response>;
   isLoading: boolean;
   filters: Filters;
+}
+
+export interface ListData {
+  list: Array<Response>;
+  isLoading: boolean;
 }

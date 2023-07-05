@@ -15,6 +15,10 @@ body {
     width: 75px;
 }
 
+.filters-container {
+    margin-bottom: 30px;
+}
+
 .filter-elems {
     display: grid;
     grid-template-columns: 3fr 3fr;
@@ -44,4 +48,33 @@ body {
         padding: 2px 0 2px 0;
         width: 70px;
         cursor: pointer;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+}
+
+.card {
+    border: 1px solid #fff;
+    padding: 10px;
+    background: #232423;
+    border-radius: 10px;
+}
+
+.card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-inner div {
+    color:#fff;
+}
+.cardList-message {
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
 }
